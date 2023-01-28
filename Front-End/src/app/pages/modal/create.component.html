@@ -1,0 +1,27 @@
+<!-- {{ (usuarios$ | async) | json }} -->
+<form nz-form nzLayout="vertical">
+  <nz-form-item>
+    <nz-form-label nzRequired>Cliente</nz-form-label>
+    <nz-form-control>
+      <nz-select [(ngModel)]="usuario" [ngModelOptions]="{standalone: true}">
+        <nz-option *ngFor="let usuario of usuarios$ | async ; let i = index" [nzValue]="usuario.id"
+          nzLabel="{{i+1}} - {{usuario.firstname}} {{ usuario.lastname }}"></nz-option>
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label nzRequired>Monto</nz-form-label>
+    <nz-form-control>
+      <input nz-input [(ngModel)]="monto" [ngModelOptions]="{standalone: true}" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label nzRequired>Cuotas</nz-form-label>
+    <nz-form-control>
+      <input nz-input [(ngModel)]="cuotas" [ngModelOptions]="{standalone: true}" />
+    </nz-form-control>
+  </nz-form-item>
+</form>
+<div *nzModalFooter>
+  <button nz-button nzType="primary" (click)="registrar()" >Registrar</button>
+</div>

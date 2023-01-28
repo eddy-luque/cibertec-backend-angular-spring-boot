@@ -1,0 +1,29 @@
+<div nz-row>
+  <div nz-col [nzXs]="{ span: 8, offset: 8 }" [nzLg]="{ span: 8, offset: 8 }">
+    <form [formGroup]="form" nz-form class="login-form">
+      <nz-form-item>
+        <nz-form-control>
+          <nz-input-group>
+            <nz-form-label nzRequired>
+              Usuario
+            </nz-form-label>
+            <input formControlName="usuario" type="text" nz-input
+              placeholder="Nombre de usuario / correo electrónico" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control>
+          <nz-input-group>
+            <nz-form-label nzRequired>
+              Contraseña
+            </nz-form-label>
+            <input formControlName="password" type="password" nz-input placeholder="Contraseña" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <button nz-button (click)="iniciar()" class="login-form-button login-form-margin"
+        nzType="primary">Ingresar</button>
+    </form>
+  </div>
+</div>

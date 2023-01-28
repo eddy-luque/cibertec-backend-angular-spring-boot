@@ -1,0 +1,29 @@
+<div class="site-page-header-ghost-wrapper" *ngIf="profile === 'ADMIN'">
+  <nz-page-header [nzGhost]="false">
+    <nz-page-header-extra>
+      <nz-space>
+        <button (click)="prestamo()" *nzSpaceItem nz-button nzType="primary">Nuevo Prestamo</button>
+      </nz-space>
+    </nz-page-header-extra>
+  </nz-page-header>
+</div>
+
+<nz-table>
+  <thead>
+    <tr>
+      <th>Fecha Prestamo</th>
+      <th>Cuotas</th>
+      <th>Interes</th>
+      <th>Monto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- 'dd/LL/YYYY HH:mm:ss' -->
+    <tr *ngFor="let prestamo of prestamos$ | async">
+      <td>{{prestamo.fechaprestamo | date : 'dd/LL/YYYY HH:mm:ss'}}</td>
+      <td>{{prestamo.cuotas}}</td>
+      <td>{{prestamo.interes}}</td>
+      <td>{{prestamo.monto}}</td>
+    </tr>
+  </tbody>
+</nz-table>
